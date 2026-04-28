@@ -1,0 +1,127 @@
+.about-section {
+  padding: 100px 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.section-line {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 300px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.text-highlight {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.about-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Spinning gradient ring */
+.photo-glow-ring {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent), #7c3aed, #06b6d4, var(--accent));
+  background-size: 300% 300%;
+  animation: ring-spin 4s linear infinite, glow-pulse 3s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(100, 100, 255, 0.3), 0 0 80px rgba(100, 100, 255, 0.1);
+  transition: box-shadow 0.4s ease;
+}
+
+.photo-glow-ring:hover {
+  box-shadow: 0 0 60px rgba(100, 100, 255, 0.5), 0 0 120px rgba(100, 100, 255, 0.2);
+}
+
+@keyframes ring-spin {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(100, 100, 255, 0.3), 0 0 80px rgba(100, 100, 255, 0.1); }
+  50%       { box-shadow: 0 0 60px rgba(139, 92, 246, 0.5), 0 0 120px rgba(139, 92, 246, 0.15); }
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--bg-primary);
+  transition: transform 0.4s ease;
+}
+
+.photo-glow-ring:hover .photo-inner {
+  transform: scale(1.04);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.95) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+.photo-glow-ring:hover .about-photo {
+  filter: brightness(1.05) contrast(1.08) saturate(1.1);
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image-container {
+    margin: 50px auto 0;
+  }
+}

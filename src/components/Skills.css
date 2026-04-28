@@ -1,0 +1,251 @@
+/* ════════════════════════════════════
+   SKILLS SECTION
+════════════════════════════════════ */
+.skills-section {
+  padding: 100px 3rem;
+  background-color: var(--bg-secondary);
+  position: relative;
+}
+
+/* Let the skills grid break out of the shared 1000px container */
+.skills-section .section-container {
+  max-width: 100%;
+}
+
+.section-header.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 10px;
+  max-width: 560px;
+}
+
+/* ── Icon Grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+/* ── Card ── */
+.skill-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.4rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: default;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Icon ── */
+.skill-icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Keep Express & other light icons visible on dark bg */
+  filter: brightness(1);
+  transition: transform 0.3s ease;
+}
+
+/* Invert white icons so they show on dark background */
+.skill-card:not(:hover) .skill-icon[src*="express"],
+.skill-card:not(:hover) .skill-icon[src*="nextjs"] {
+  filter: invert(1) brightness(0.85);
+}
+.skill-card:hover .skill-icon[src*="express"],
+.skill-card:hover .skill-icon[src*="nextjs"] {
+  filter: invert(1) brightness(1);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.12);
+}
+
+/* ── Label ── */
+.skill-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.3s ease;
+  line-height: 1.2;
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .skill-icon-wrap {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ════════════════════════════════════
+   PROGRAMMING LANGUAGES MARQUEE
+════════════════════════════════════ */
+.lang-strip {
+  margin-top: 60px;
+  padding: 36px 0 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lang-strip-label {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 28px;
+}
+
+/* Scrolling viewport */
+.lang-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Edge fade masks */
+.lang-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.lang-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+.lang-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+/* The scrolling track — CSS-only infinite marquee */
+.lang-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: marquee-right 22s linear infinite;
+}
+
+@keyframes marquee-right {
+  0%   { transform: translateX(-33.333%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Individual language pill — horizontal capsule */
+.lang-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  padding: 12px 22px 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.lang-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-3px);
+}
+
+.lang-icon-wrap {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lang-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lang-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: color 0.3s ease;
+  letter-spacing: 0.01em;
+}
+
+.lang-item:hover .lang-name {
+  color: var(--text-primary);
+}
+
+/* Pause on hover */
+.lang-marquee-wrapper:hover .lang-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 600px) {
+  .lang-item {
+    min-width: 88px;
+    padding: 14px 16px;
+  }
+  .lang-icon-wrap {
+    width: 40px;
+    height: 40px;
+  }
+  .lang-fade {
+    width: 60px;
+  }
+}
+
