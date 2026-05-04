@@ -102,20 +102,41 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  .skills-section {
+    padding: 100px 2rem;
+  }
+}
+
 @media (max-width: 900px) {
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .skills-section {
+    padding: 80px 1.25rem;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
+
   .skill-icon-wrap {
     width: 44px;
     height: 44px;
+  }
+
+  .skill-card {
+    padding: 1rem 0.75rem 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

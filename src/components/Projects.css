@@ -3,7 +3,6 @@
 ════════════════════════════════════ */
 .projects-section {
   padding: 100px 3rem;
-  min-height: 100vh;
 }
 
 .projects-grid {
@@ -271,17 +270,30 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  .projects-section {
+    padding: 100px 2rem;
+  }
+}
+
 @media (max-width: 900px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .projects-section {
     padding: 80px 1.25rem;
   }
+
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
   }
 }

@@ -42,12 +42,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 64px;
+  min-height: 54px;
   margin-bottom: 1.2rem;
 }
 
 .role-tag {
-  font-size: 2.2rem;
+  font-size: clamp(1.3rem, 5vw, 2.2rem);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text-secondary);
@@ -463,6 +463,14 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .hero {
+    padding: 0 1.25rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
   .hero-cta {
     flex-direction: column;
     width: 100%;
@@ -472,25 +480,36 @@
   .btn-primary,
   .btn-secondary {
     justify-content: center;
+    width: 100%;
   }
 
   .ring-1 {
-    width: 320px;
-    height: 320px;
-  }
-
-  .ring-2 {
-    width: 480px;
-    height: 480px;
-  }
-
-  .orb-1 {
     width: 280px;
     height: 280px;
   }
 
+  .ring-2 {
+    width: 420px;
+    height: 420px;
+  }
+
+  .orb-1 {
+    width: 240px;
+    height: 240px;
+  }
+
   .orb-2 {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .hero-socials {
+    gap: 1.2rem;
   }
 }

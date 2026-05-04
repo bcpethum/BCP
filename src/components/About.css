@@ -1,6 +1,6 @@
 .about-section {
   padding: 100px 2rem;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
 }
@@ -117,11 +117,37 @@
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    padding: 80px 1.25rem;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
-  
+
   .about-image-container {
-    margin: 50px auto 0;
+    order: -1;
+    margin: 0 auto;
+  }
+
+  .photo-glow-ring {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    white-space: normal;
+  }
+
+  .photo-glow-ring {
+    width: 180px;
+    height: 180px;
   }
 }
